@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ Fullname });
     if (!user) {
-      return res.status(404).json({ message: ` user n'existe pas` });
+      return res.status(404).json({ message: `utilisateur n'existe pas` });
     }
     const isMatch = await user.matchPassword(password);
     if (!isMatch) {

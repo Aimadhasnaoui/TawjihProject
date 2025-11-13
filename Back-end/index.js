@@ -5,8 +5,8 @@ const userLogin = require("./User/Controller");
 require('dotenv').config(); 
 mongoose
   .connect(
-    // "mongodb+srv://aimadhas1234_db_user:clubX0h1P5msY7qy@tawjihi.ognktzc.mongodb.net/?appName=Tawjihi"
-    process.env.databasekey
+    "mongodb+srv://aimadhas1234_db_user:clubX0h1P5msY7qy@tawjihi.ognktzc.mongodb.net/?appName=Tawjihi"
+    // process.env.databasekey
   )
   .then(() => {
     console.log("✅ Connected to MongoDB successfully");
@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json()); 
 const port = 3000;
 app.use('/api/user',user)
-app.get('/api/login',userLogin.login)
+app.post('/api/login',userLogin.login)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
